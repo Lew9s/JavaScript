@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Object类型</title>
+    </head>
+    <script type="text/javascript">
+        /* 
+            Object类型中有哪些通用属性和方法
+            属性：
+                prototype 属性(给对象动态扩展属性和方法) | constructor 属性
+            方法:
+                toLocaleString 方法 | toString 方法 | valueOf 方法
+        */
+
+        var o = new Object();
+        console.log(typeof o)
+
+        //后期给Object类型的对象扩展一个dosome()方法
+        Object.prototype.dosome = function(){
+            console.log("测试prototype属性!")
+        }
+        
+        //后期给Object类型的对象扩展一个username属性
+        Object.prototype.username = "zhangsan"
+
+        //调用dosome方法
+        o.dosome();
+
+        //访问username属性
+        console.log(o.username)
+
+        //可以给String扩展一个方法吗？
+        String.prototype.mysubstr = function(startIndex,length){
+            return this.substr(startIndex,length);
+        }
+
+        console.log("abcdef".mysubstr(2,3))
+
+
+    </script>
+
+</html>
