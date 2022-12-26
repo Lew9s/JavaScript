@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var a = [];
+
+            /* 添加元素 */
+            a.push(100);
+            a.push("abc");
+            a.push(true);
+            console.log("数组元素个数是： "+ a.length)
+            for(var i=0; i<a.length; i++) {
+                console.log(a[i])
+            }
+
+            //pop方法将数组末尾元素弹出
+            console.log(a.length)
+            console.log(a.pop())
+
+            //push和pop模拟栈结构，先进后出
+
+            //翻转数组
+            a.reverse()
+            for(var i=0; i<a.length; i++) {
+                console.log(a[i])
+            }
+
+            //连接（将数组中的每一个元素以符号连接成字符串）
+            var str = a.join('-')
+            console.log(str)
+
+        </script>
+    </body>
+</html>

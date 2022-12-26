@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS的控制语句</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /* 
+                选择结构：
+                    if语句
+                    switch语句
+                循环结构：
+                    for
+                    while
+                    do..while
+                转向语句
+                    break
+                    continue
+                    return
+            
+            JS特殊语句
+                for..in语句
+                with语句
+            */
+
+            for (var i = 0; i < 10; i++) {
+                console.log("i = "+i);
+            }
+
+            var arr = [true,24,5,56,"abc",4]
+            for(var i = 0;i< arr.length;i++){
+                console.log(arr[i])
+            }
+
+            for(var index in arr){
+                console.log(arr[index])
+            }
+
+            //for..in语句还可以取对象的属性值
+            Employee = function(empno,ename){
+                this.empno = empno
+                this.ename = ename
+            }
+
+            var e = new Employee(7369,"smith")
+            console.log(e.empno + "," + e["ename"])
+
+            //for..in语句遍历对象的属性
+            for(var x in e){//x为对象属性名
+                console.log(x)
+                console.log(e[x])
+            }
+
+            var x = new Employee(7524,"lewis")
+            //with语句，不用加x.了
+            with(x){
+                console.log(empno + ',' + ename)
+            }
+
+        </script>
+    </body>
+</html>

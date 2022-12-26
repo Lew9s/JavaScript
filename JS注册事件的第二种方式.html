@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS注册事件的第二种方式</title>
+    </head>
+    <body>
+
+        <input type="button" value="hello" id="hellobtn" onclick="" />
+
+        <script type="text/javascript">
+
+            /* 定义一个函数 */
+            function sum(){
+                console.log("sum function invoke!");
+            }
+             /* 根据id获取button对象 */
+             var hellobtnElt = document.getElementById("hellobtn")
+
+             /* 将sum函数绑定到hellobtn的click事件上 */
+             hellobtnElt.onclick = sum
+            /* 不要这样写 hellobtnElt.onclick = sum()*/
+
+            //回调函数可以是匿名函数
+           /*  hellobtnElt.onclick = function(){
+                console.log("匿名函数")
+            } */
+
+        </script>
+    </body>
+</html>
