@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>复选框的全选和取消全选</title>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            window.onload = function() {
+                var firstchkElt = document.getElementById("firstchk");
+                //获取所有复选框对象
+                var aihaos = document.getElementsByName("aihao")
+                firstchkElt.onclick = function() {
+                    /* if(firstchkElt.checked) {
+                        //遍历数组
+                        for(var i=0; i<aihaos.length; i++) {
+                        var aihaoChk = aihaos[i];
+                        aihaoChk.checked = true;
+                    }
+                    }else{
+                        //遍历数组
+                        for(var i=0; i<aihaos.length; i++) {
+                        var aihaoChk = aihaos[i];
+                        aihaoChk.checked = false;
+                    }*/
+                    //改良代码
+                    for(var i=0; i<aihaos.length; i++) {
+                        var aihaoChk = aihaos[i];
+                        aihaoChk.checked = firstchkElt.checked;
+                    } 
+                }
+                //给每个name="aihao"复选框绑定鼠标单机事件
+                for(var i=0; i<aihaos.length; i++){
+                        aihaos[i].onclick = function(){
+                            //在这里控制全选框的选中状态
+                            //全选框选中与不选中取决于所有aihao复选框的总数量
+                            //如果和总选中数量相同时则全选框选中
+                            var count = aihaos.length
+                            var checkedCount = 0;
+                            for(var j=0;j<aihaos.length;j++){
+                                if(aihaos[j].checked){
+                                    checkedCount++;
+                                }
+                            }
+                            //循环结束之后，所有被选中框统计结束
+                            firstchkElt.checked = (checkedCount == count)
+                        }
+                }
+            }
+        </script>
+        
+        <input type="checkbox" id="firstchk" />全选
+        <br>
+
+        <input type="checkbox" name="aihao" value="smoke" />抽烟
+        <br>
+
+        <input type="checkbox" name="aihao" value="drink" />喝酒
+        <br>
+
+        <input type="checkbox" name="aihao" value="hair" />烫头
+        <br>
+
+    </body>
+</html>

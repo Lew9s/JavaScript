@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>拼接html的方式,设置table的tbody</title>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            var fromJava = "{\"total\" : 3,\"students\" : [{\"name\" : \"张三\" , \"age\" : 20},{\"name\" : \"李四\" , \"age\" : 19},{\"name\" : \"王五\" , \"age\" : 20}]}"
+
+            window.onload = function(){
+                document.getElementById("displayBtn").onclick = function(){
+                    //解析上面JSON格式的字符串,将解析出来的数据放入tbody当中
+                    //转化JSON对象
+                    window.eval("var json = " + fromJava)
+                    //设置总记录条数
+                    document.getElementById("Totalnum").innerHTML = json.total
+                    //拼接HTML
+                    var studentArray = json.students
+                    var html = ""
+                    for(var i = 0; i < studentArray.length; i++){
+                        var s = studentArray[i]
+                        html += "<tr>"
+                        html += "<td>"+ (i+1) +"</td>"
+                        html += "<td>"+ s.name +"</td>"
+                        html += "<td>"+ s.age +"</td>"
+                        html += "</tr>"
+                    }
+                    //将以上拼接的HTML设置到tbody中
+                    document.getElementById("stutbody").innerHTML = html
+                }
+            }
+        </script>
+
+
+        <input type="button" value="查看学生信息列表" id="displayBtn" />
+        <hr>
+
+        <table border="1px" width="40%">
+            <tr>
+                <th>序号</th>
+                <th>学生姓名</th>
+                <th>学生年龄</th>
+            </tr>
+            <tbody id="stutbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>张三</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>李四</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>王五</td>
+                    <td>21</td>
+                </tr> -->
+            </tbody>
+        </table>
+        总记录数:<span id="Totalnum"></span>条
+    </body>
+</html>
